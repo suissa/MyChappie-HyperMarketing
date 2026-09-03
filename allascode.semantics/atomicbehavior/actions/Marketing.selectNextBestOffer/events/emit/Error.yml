@@ -1,0 +1,4 @@
+name: Marketing.selectNextBestOffer.Error
+when: selection_cannot_be_completed
+recoverable: true
+fallback: HumanInTheHealingLoop

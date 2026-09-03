@@ -1,0 +1,3 @@
+name: Offer.evaluateEligibility.Ok
+when: evaluation_completed
+payload: schema/output.yml

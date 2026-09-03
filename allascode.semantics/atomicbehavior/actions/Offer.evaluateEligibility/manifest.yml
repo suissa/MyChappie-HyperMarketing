@@ -1,0 +1,16 @@
+canonical_label: Offer.evaluateEligibility
+version: 0.1.0
+kind: atomicbehavior.action
+purity: pure
+deterministic: true
+input: schema/input.yml
+output: schema/output.yml
+emits:
+  - Ok
+  - Error
+invariants:
+  - consumer_constraints_before_optimization
+  - merchant_bid_cannot_override_constraints
+  - same_input_same_output
+projection:
+  typescript: examples/typescript/src/allascode/actions/evaluate-offer-eligibility.ts

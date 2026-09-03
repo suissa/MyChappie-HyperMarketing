@@ -1,0 +1,7 @@
+given:
+  no_commercial_candidate_beats_safe_baseline: true
+  no_action_candidate_exists: true
+when: Marketing.selectNextBestOffer
+then:
+  event: Ok
+  value.candidate.actionFamily: no_action

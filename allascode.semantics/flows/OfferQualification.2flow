@@ -1,0 +1,5 @@
+OfferProposal -> Offer.evaluateEligibility
+Offer.evaluateEligibility.Ok -> Marketing.selectNextBestOffer
+Offer.evaluateEligibility.Error -> HumanInTheHealingLoop
+Marketing.selectNextBestOffer.Ok -> Decision.Created
+Marketing.selectNextBestOffer.Error -> HumanInTheHealingLoop

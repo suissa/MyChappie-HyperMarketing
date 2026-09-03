@@ -1,0 +1,9 @@
+type: object
+required: [contract, offer, purchases, now, weeklyPresentations, weeklyDiscoveryPresentations]
+properties:
+  contract: { semantic_type: DemandContract }
+  offer: { semantic_type: OfferProposal }
+  purchases: { type: array, items: { semantic_type: Purchase } }
+  now: { semantic_type: ISODateTime }
+  weeklyPresentations: { semantic_type: PresentationCount }
+  weeklyDiscoveryPresentations: { semantic_type: PresentationCount }

@@ -1,0 +1,7 @@
+given:
+  consumer_owns_same_durable_product: true
+when: Offer.evaluateEligibility
+then:
+  event: Ok
+  value.eligible: false
+  value.reasons_contains: ALREADY_OWNED

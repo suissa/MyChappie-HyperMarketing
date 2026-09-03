@@ -1,0 +1,15 @@
+canonical_label: Marketing.selectNextBestOffer
+version: 0.1.0
+kind: atomicbehavior.action
+purity: pure
+deterministic_given_state: true
+input: schema/input.yml
+output: schema/output.yml
+emits: [Ok, Error]
+invariants:
+  - candidates_must_be_prequalified
+  - no_action_is_valid
+  - rejection_does_not_imply_discount
+  - exploration_respects_baseline_safety
+projection:
+  typescript: examples/typescript/src/allascode/actions/select-next-best-offer.ts
