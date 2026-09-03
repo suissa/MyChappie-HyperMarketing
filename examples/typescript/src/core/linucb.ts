@@ -1,4 +1,5 @@
-import type { ActionFamily, ArmModel, BanditStateRecord, Candidate, ConsumerId, FeatureVector } from "../domain/types.js";
+import type { ConsumerId } from "../domain/brand.js";
+import type { ActionFamily, ArmModel, BanditStateRecord, Candidate, FeatureVector } from "../domain/types.js";
 
 export const FEATURE_DIMENSION = 8;
 export const FEATURE_VERSION = "ahmp-context/0.1";
