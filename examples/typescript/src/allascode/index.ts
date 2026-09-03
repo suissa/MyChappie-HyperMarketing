@@ -7,3 +7,7 @@ export * from "./actions/update-ownership.js";
 export * from "./actions/discover-complements.js";
 export * from "./actions/evaluate-offer-eligibility.js";
 export * from "./actions/select-next-best-offer.js";
+export * from "./actions/record-feedback.js";
+export * from "./actions/calculate-reward.js";
+export * from "./actions/update-bandit.js";
+export * from "./actions/generate-recovery-candidates.js";

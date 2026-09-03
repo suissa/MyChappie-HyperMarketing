@@ -1,0 +1,11 @@
+canonical_label: Recovery.generateCandidates
+kind: action
+version: 0.1.0
+implementation:
+  typescript: ../../../../examples/typescript/src/allascode/actions/generate-recovery-candidates.ts
+emits: [Ok, Error]
+invariants:
+  - rejection_does_not_imply_discount
+  - recovery_uses_known_purchase_history
+  - no_action_is_always_available
+  - recovery_candidates_still_require_eligibility_before_presentation

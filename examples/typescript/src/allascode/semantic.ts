@@ -12,6 +12,7 @@ export type BanditScore = Semantic<number, "BanditScore">;
 export type MarketingStateVersion = Semantic<number, "MarketingStateVersion">;
 export type PurchaseCount = Semantic<number, "PurchaseCount">;
 export type ComplementConfidence = Semantic<number, "ComplementConfidence">;
+export type RewardValue = Semantic<number, "RewardValue">;
 
 function finite(value: number, name: string): number {
   if (!Number.isFinite(value)) throw new Error(`${name} must be finite`);
@@ -54,6 +55,12 @@ export function complementConfidence(value: number): ComplementConfidence {
   finite(value, "ComplementConfidence");
   if (value < 0 || value > 1) throw new Error("ComplementConfidence must be between 0 and 1");
   return value as ComplementConfidence;
+}
+
+export function rewardValue(value: number): RewardValue {
+  finite(value, "RewardValue");
+  if (value < -1 || value > 1) throw new Error("RewardValue must be between -1 and 1");
+  return value as RewardValue;
 }
 
 export const banditScore = (value: number): BanditScore => finite(value, "BanditScore") as BanditScore;

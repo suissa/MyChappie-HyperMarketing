@@ -1,12 +1,15 @@
 import type { ConsumerId, ProductId, PurchaseId } from "../domain/brand.js";
 import type {
+  ActionFamily,
   BanditStateRecord,
   Candidate,
   ComplementRelation,
   DemandContract,
   EligibilityResult,
+  Feedback,
   Lifecycle,
   OfferProposal,
+  PersistedDecision,
   Purchase,
 } from "../domain/types.js";
 import type {
@@ -17,6 +20,7 @@ import type {
   MarketingStateVersion,
   PresentationCount,
   PurchaseCount,
+  RewardValue,
   SafetyMargin,
 } from "./semantic.js";
 
@@ -101,4 +105,47 @@ export interface DiscoveredComplement {
   readonly sourceProductId: ProductId;
   readonly targetProductId: ProductId;
   readonly confidence: ComplementConfidence;
+}
+
+export interface RecordFeedbackInput {
+  readonly current: readonly Feedback[];
+  readonly decisions: readonly PersistedDecision[];
+  readonly feedback: Feedback;
+}
+
+export interface FeedbackRecordResult {
+  readonly entries: readonly Feedback[];
+  readonly recorded: boolean;
+  readonly feedback: Feedback;
+}
+
+export interface CalculateRewardInput {
+  readonly feedback: Feedback;
+}
+
+export interface UpdateBanditInput {
+  readonly state: BanditStateRecord;
+  readonly actionFamily: ActionFamily;
+  readonly features: readonly number[];
+  readonly reward: RewardValue;
+  readonly now: ISODateTime;
+}
+
+export type RecoveryActionFamily = "baseline" | "replenishment" | "bundle" | "discount" | "no_action";
+
+export interface RecoveryCandidateSeed {
+  readonly actionFamily: RecoveryActionFamily;
+  readonly offer?: OfferProposal;
+  readonly source: "known_purchase" | "no_action";
+}
+
+export interface GenerateRecoveryCandidatesInput {
+  readonly feedback: Feedback;
+  readonly ownership: readonly OwnershipEntry[];
+  readonly offers: readonly OfferProposal[];
+}
+
+export interface RecoveryCandidateSet {
+  readonly triggered: boolean;
+  readonly candidates: readonly RecoveryCandidateSeed[];
 }
