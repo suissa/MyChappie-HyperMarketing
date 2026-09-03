@@ -1,0 +1,34 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "urn:ahmp:schema:offer-proposal:2026-09-03",
+  "title": "AHMP Offer Proposal",
+  "type": "object",
+  "required": ["offerId", "merchantId", "productId", "category", "price", "actionFamily", "expiresAt"],
+  "properties": {
+    "offerId": {"type": "string", "minLength": 1},
+    "merchantId": {"type": "string", "minLength": 1},
+    "productId": {"type": "string", "minLength": 1},
+    "category": {"type": "string", "minLength": 1},
+    "actionFamily": {"enum": ["intent", "complement_discovery", "replenishment", "baseline", "bundle", "discount", "no_action"]},
+    "price": {
+      "type": "object",
+      "required": ["currency", "amountMinor"],
+      "properties": {
+        "currency": {"type": "string", "pattern": "^[A-Z]{3}$"},
+        "amountMinor": {"type": "integer", "minimum": 0},
+        "originalAmountMinor": {"type": "integer", "minimum": 0}
+      },
+      "additionalProperties": false
+    },
+    "complementsProductId": {"type": "string"},
+    "complementConfidence": {"type": "number", "minimum": 0, "maximum": 1},
+    "merchantQuality": {"type": "number", "minimum": 0, "maximum": 1},
+    "counterofferSupported": {"type": "boolean"},
+    "channel": {"enum": ["whatsapp", "web", "app", "email", "voice", "other"]},
+    "modality": {"enum": ["text", "image", "audio", "video", "interactive"]},
+    "createdAt": {"type": "string", "format": "date-time"},
+    "expiresAt": {"type": "string", "format": "date-time"},
+    "metadata": {"type": "object", "additionalProperties": true}
+  },
+  "additionalProperties": false
+}

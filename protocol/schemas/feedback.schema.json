@@ -1,0 +1,18 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "urn:ahmp:schema:feedback:2026-09-03",
+  "title": "AHMP Feedback",
+  "type": "object",
+  "required": ["feedbackId", "decisionId", "consumerId", "type", "timestamp"],
+  "properties": {
+    "feedbackId": {"type": "string"},
+    "decisionId": {"type": "string"},
+    "consumerId": {"type": "string"},
+    "offerId": {"type": "string"},
+    "type": {"enum": ["presented", "accepted", "rejected", "ignored", "purchased", "dismissed", "blocked_category", "unsubscribed"]},
+    "reward": {"type": "number", "minimum": -1, "maximum": 1},
+    "rewardComponents": {"type": "object", "additionalProperties": {"type": "number"}},
+    "timestamp": {"type": "string", "format": "date-time"}
+  },
+  "additionalProperties": false
+}

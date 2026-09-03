@@ -1,0 +1,18 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "urn:ahmp:schema:purchase:2026-09-03",
+  "title": "AHMP Purchase Signal",
+  "type": "object",
+  "required": ["purchaseId", "consumerId", "productId", "lifecycle", "purchasedAt"],
+  "properties": {
+    "purchaseId": {"type": "string"},
+    "consumerId": {"type": "string"},
+    "productId": {"type": "string"},
+    "quantity": {"type": "number", "exclusiveMinimum": 0},
+    "lifecycle": {"enum": ["durable", "consumable", "subscription", "service", "quantity_sensitive", "unknown"]},
+    "replenishAfterDays": {"type": "integer", "minimum": 0},
+    "activeUntil": {"type": "string", "format": "date-time"},
+    "purchasedAt": {"type": "string", "format": "date-time"}
+  },
+  "additionalProperties": false
+}

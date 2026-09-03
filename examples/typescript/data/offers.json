@@ -1,0 +1,42 @@
+[
+  {
+    "offerId": "offer-headset-1",
+    "merchantId": "merchant-gaming-1",
+    "productId": "headset-01",
+    "category": "gaming",
+    "actionFamily": "complement_discovery",
+    "price": {"currency": "BRL", "amountMinor": 34990, "originalAmountMinor": 39990},
+    "merchantQuality": 0.91,
+    "counterofferSupported": true,
+    "channel": "whatsapp",
+    "modality": "text",
+    "createdAt": "2026-09-03T00:00:00Z",
+    "expiresAt": "2027-09-03T00:00:00Z"
+  },
+  {
+    "offerId": "offer-soda-baseline",
+    "merchantId": "merchant-market-1",
+    "productId": "soda-zero-01",
+    "category": "beverage",
+    "actionFamily": "baseline",
+    "price": {"currency": "BRL", "amountMinor": 699},
+    "merchantQuality": 0.87,
+    "channel": "whatsapp",
+    "modality": "text",
+    "createdAt": "2026-09-03T00:00:00Z",
+    "expiresAt": "2027-09-03T00:00:00Z"
+  },
+  {
+    "offerId": "offer-soda-discount",
+    "merchantId": "merchant-market-1",
+    "productId": "soda-zero-01",
+    "category": "beverage",
+    "actionFamily": "discount",
+    "price": {"currency": "BRL", "amountMinor": 599, "originalAmountMinor": 699},
+    "merchantQuality": 0.87,
+    "channel": "whatsapp",
+    "modality": "text",
+    "createdAt": "2026-09-03T00:00:00Z",
+    "expiresAt": "2027-09-03T00:00:00Z"
+  }
+]

@@ -1,0 +1,14 @@
+{
+  "storage": {
+    "kind": "database",
+    "module": "./my-database-gateway.js",
+    "options": {
+      "connectionUrlEnv": "DATABASE_URL"
+    }
+  },
+  "decisioning": {
+    "policyVersion": "conservative-linucb/0.1",
+    "alpha": 0.55,
+    "safetyMargin": 0.15
+  }
+}

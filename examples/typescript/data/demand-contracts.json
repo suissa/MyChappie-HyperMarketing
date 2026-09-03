@@ -1,0 +1,28 @@
+[
+  {
+    "consumerId": "consumer-1",
+    "version": 1,
+    "intents": [],
+    "allowedCategories": ["gaming", "beverage"],
+    "blockedCategories": [],
+    "channels": ["whatsapp", "web"],
+    "modalities": ["text", "image"],
+    "contactWindows": [
+      {
+        "days": ["mon", "tue", "wed", "thu", "fri", "sat", "sun"],
+        "from": "00:00",
+        "to": "23:59",
+        "timezone": "America/Sao_Paulo"
+      }
+    ],
+    "discovery": {
+      "enabled": true,
+      "complementaryOnly": true,
+      "maxPresentationsPerWeek": 2,
+      "recoveryEnabled": true
+    },
+    "interruptionBudgetPerWeek": 3,
+    "selectiveDisclosure": true,
+    "updatedAt": "2026-09-03T00:00:00Z"
+  }
+]

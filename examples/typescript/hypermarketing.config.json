@@ -1,0 +1,11 @@
+{
+  "storage": {
+    "kind": "json",
+    "path": "./data"
+  },
+  "decisioning": {
+    "policyVersion": "conservative-linucb/0.1",
+    "alpha": 0.55,
+    "safetyMargin": 0.15
+  }
+}

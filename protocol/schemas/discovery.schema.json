@@ -1,0 +1,19 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "urn:ahmp:schema:discovery:2026-09-03",
+  "title": "AHMP Capability Discovery",
+  "type": "object",
+  "required": ["protocol", "version", "roles", "capabilities", "bindings", "schemas"],
+  "properties": {
+    "protocol": {"const": "ahmp"},
+    "version": {"const": "2026-09-03"},
+    "roles": {"type": "array", "items": {"type": "string"}, "uniqueItems": true},
+    "capabilities": {"type": "array", "items": {"type": "string"}, "uniqueItems": true},
+    "bindings": {"type": "array", "items": {"enum": ["rest", "a2a", "mcp", "queue", "local"]}, "uniqueItems": true},
+    "schemas": {"type": "object", "additionalProperties": {"type": "string"}},
+    "a2aExtension": {"type": "string"},
+    "ucpVersion": {"type": "string"},
+    "ap2Version": {"type": "string"}
+  },
+  "additionalProperties": false
+}
