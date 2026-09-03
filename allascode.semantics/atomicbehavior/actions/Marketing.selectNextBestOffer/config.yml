@@ -1,0 +1,8 @@
+policy:
+  algorithm: conservative_linucb
+  alpha: 0.35
+  safety_margin: 0.05
+  baseline_families: [baseline, replenishment, no_action]
+  discount_is_candidate: true
+  no_action_is_candidate: true
+hidden_runtime_configuration: false

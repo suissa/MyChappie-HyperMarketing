@@ -1,0 +1,5 @@
+type: object
+required: [candidate, score]
+properties:
+  candidate: { semantic_type: PrequalifiedCandidate }
+  score: { semantic_type: BanditScore }

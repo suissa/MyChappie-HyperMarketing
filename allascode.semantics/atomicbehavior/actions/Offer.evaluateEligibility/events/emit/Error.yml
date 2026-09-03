@@ -1,0 +1,4 @@
+name: Offer.evaluateEligibility.Error
+when: input_cannot_be_evaluated
+recoverable: true
+fallback: HumanInTheHealingLoop

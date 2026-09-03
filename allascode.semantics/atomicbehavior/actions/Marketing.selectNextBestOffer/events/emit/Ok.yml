@@ -1,0 +1,3 @@
+name: Marketing.selectNextBestOffer.Ok
+when: candidate_selected
+payload: schema/output.yml

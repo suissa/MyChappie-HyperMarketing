@@ -1,0 +1,10 @@
+events:
+  Ok:
+    payload: schema/output.yml
+  Error:
+    payload:
+      type: object
+      required: [code, message]
+      properties:
+        code: { enum: [INVALID_INPUT, EVALUATION_FAILED] }
+        message: { type: string }

@@ -1,0 +1,9 @@
+type: object
+required: [banditState, candidates, alpha, safetyMargin]
+properties:
+  banditState: { semantic_type: BanditState }
+  candidates:
+    type: array
+    items: { semantic_type: PrequalifiedCandidate }
+  alpha: { semantic_type: ExplorationCoefficient }
+  safetyMargin: { semantic_type: SafetyMargin }

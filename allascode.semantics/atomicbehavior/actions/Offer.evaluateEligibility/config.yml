@@ -1,0 +1,9 @@
+policy:
+  ownership_suppression: true
+  contact_window_enforcement: true
+  interruption_budget_enforcement: true
+  discovery_budget_enforcement: true
+  explicit_rejection_is_hard_constraint: true
+normalization:
+  allowed_only_in_validation_or_healing: true
+hidden_runtime_configuration: false
