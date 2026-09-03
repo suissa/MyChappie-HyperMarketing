@@ -1,0 +1,126 @@
+openapi: 3.1.0
+info:
+  title: Agentic HyperMarketing Protocol HTTP Binding
+  version: 2026-09-03
+  description: Experimental REST binding for AHMP. Business ineligibility is represented as a valid decision response, not an HTTP transport failure.
+servers:
+  - url: https://example.com/ahmp/v1
+paths:
+  /offers/evaluate:
+    post:
+      operationId: evaluateOffer
+      summary: Evaluate one merchant offer for one consumer context
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required: [consumerId, offer]
+              properties:
+                consumerId: { type: string }
+                offer:
+                  $ref: ../schemas/offer-proposal.schema.json
+      responses:
+        '200':
+          description: Protocol decision, including reject/no_action
+          content:
+            application/json:
+              schema:
+                $ref: ../schemas/decision.schema.json
+        '400':
+          $ref: '#/components/responses/ProtocolError'
+  /feedback:
+    post:
+      operationId: recordFeedback
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: ../schemas/feedback.schema.json
+      responses:
+        '204': { description: Recorded or idempotently already recorded }
+        '400':
+          $ref: '#/components/responses/ProtocolError'
+  /purchases:
+    post:
+      operationId: recordPurchase
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: ../schemas/purchase.schema.json
+      responses:
+        '204': { description: Recorded or idempotently already recorded }
+        '400':
+          $ref: '#/components/responses/ProtocolError'
+  /complements/query:
+    post:
+      operationId: queryComplements
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required: [consumerId]
+              properties:
+                consumerId: { type: string }
+                sourceProductIds:
+                  type: array
+                  items: { type: string }
+      responses:
+        '200':
+          description: Eligible semantic complement candidate offers
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: ../schemas/offer-proposal.schema.json
+  /counteroffers:
+    post:
+      operationId: requestCounteroffer
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required: [consumerId, offerId, reasonCodes]
+              properties:
+                consumerId: { type: string }
+                offerId: { type: string }
+                reasonCodes:
+                  type: array
+                  items: { type: string }
+                disclosure:
+                  type: object
+                  additionalProperties: true
+      responses:
+        '200':
+          description: Merchant may return a new immutable offer proposal
+          content:
+            application/json:
+              schema:
+                oneOf:
+                  - $ref: ../schemas/offer-proposal.schema.json
+                  - type: 'null'
+components:
+  responses:
+    ProtocolError:
+      description: Invalid AHMP message or transport-level request
+      content:
+        application/json:
+          schema:
+            type: object
+            required: [code, message, retryable]
+            properties:
+              code: { type: string }
+              message: { type: string }
+              retryable: { type: boolean }
+              details:
+                type: object
+                additionalProperties: true

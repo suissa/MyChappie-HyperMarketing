@@ -1,0 +1,23 @@
+{
+  "protocol": "ahmp",
+  "version": "2026-09-03",
+  "roles": ["consumer_agent", "broker"],
+  "capabilities": [
+    "io.github.suissa.my-chappie-hypermarketing.offer.evaluate",
+    "io.github.suissa.my-chappie-hypermarketing.feedback.record",
+    "io.github.suissa.my-chappie-hypermarketing.purchase.record",
+    "io.github.suissa.my-chappie-hypermarketing.complement.discover",
+    "io.github.suissa.my-chappie-hypermarketing.counteroffer.request"
+  ],
+  "bindings": ["rest", "a2a", "mcp", "local"],
+  "schemas": {
+    "demandContract": "urn:ahmp:schema:demand-contract:2026-09-03",
+    "offerProposal": "urn:ahmp:schema:offer-proposal:2026-09-03",
+    "decision": "urn:ahmp:schema:decision:2026-09-03",
+    "feedback": "urn:ahmp:schema:feedback:2026-09-03",
+    "purchase": "urn:ahmp:schema:purchase:2026-09-03"
+  },
+  "a2aExtension": "urn:ahmp:a2a:2026-09-03",
+  "ucpVersion": "2026-08-25",
+  "ap2Version": "0.2"
+}

@@ -1,0 +1,16 @@
+{
+  "name": "@mychappie/hypermarketing-reference",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "description": "TypeScript reference implementation of AHMP",
+  "scripts": {
+    "build": "tsc -p tsconfig.json",
+    "test": "npm run build && node --test dist/tests/*.test.js",
+    "demo": "npm run build && node dist/src/demo.js"
+  },
+  "devDependencies": {
+    "@types/node": "^24.0.0",
+    "typescript": "^5.9.0"
+  }
+}

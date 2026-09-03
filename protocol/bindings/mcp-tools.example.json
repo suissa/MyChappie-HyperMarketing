@@ -1,0 +1,28 @@
+{
+  "protocolVersion": "2026-07-28",
+  "tools": [
+    {
+      "name": "ahmp.evaluate_offer",
+      "description": "Evaluate an AHMP offer under consumer-governed constraints",
+      "inputSchema": {
+        "type": "object",
+        "required": ["consumerId", "offer"],
+        "properties": {
+          "consumerId": {"type": "string"},
+          "offer": {"$ref": "urn:ahmp:schema:offer-proposal:2026-09-03"}
+        }
+      },
+      "outputSchema": {"$ref": "urn:ahmp:schema:decision:2026-09-03"}
+    },
+    {
+      "name": "ahmp.record_feedback",
+      "description": "Record correlated feedback for AHMP learning",
+      "inputSchema": {"$ref": "urn:ahmp:schema:feedback:2026-09-03"}
+    },
+    {
+      "name": "ahmp.record_purchase",
+      "description": "Record a purchase signal so ownership, suppression and complement discovery can update",
+      "inputSchema": {"$ref": "urn:ahmp:schema:purchase:2026-09-03"}
+    }
+  ]
+}

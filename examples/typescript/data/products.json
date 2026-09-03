@@ -1,0 +1,5 @@
+[
+  {"productId": "console-01", "name": "Game Console", "category": "gaming"},
+  {"productId": "headset-01", "name": "Gaming Headset", "category": "gaming"},
+  {"productId": "soda-zero-01", "name": "Zero Soda", "category": "beverage"}
+]

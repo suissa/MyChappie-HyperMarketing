@@ -1,0 +1,61 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "urn:ahmp:schema:demand-contract:2026-09-03",
+  "title": "AHMP Demand Contract",
+  "type": "object",
+  "required": ["consumerId", "version", "channels", "modalities", "discovery"],
+  "properties": {
+    "consumerId": {"type": "string", "minLength": 1},
+    "version": {"type": "integer", "minimum": 1},
+    "intents": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["intentId", "status"],
+        "properties": {
+          "intentId": {"type": "string"},
+          "productId": {"type": "string"},
+          "category": {"type": "string"},
+          "status": {"enum": ["searching", "paused", "fulfilled", "rejected"]},
+          "maxPriceMinor": {"type": "integer", "minimum": 0},
+          "currency": {"type": "string", "pattern": "^[A-Z]{3}$"},
+          "expiresAt": {"type": "string", "format": "date-time"}
+        },
+        "additionalProperties": false
+      }
+    },
+    "allowedCategories": {"type": "array", "items": {"type": "string"}, "uniqueItems": true},
+    "blockedCategories": {"type": "array", "items": {"type": "string"}, "uniqueItems": true},
+    "channels": {"type": "array", "items": {"enum": ["whatsapp", "web", "app", "email", "voice", "other"]}, "minItems": 1, "uniqueItems": true},
+    "modalities": {"type": "array", "items": {"enum": ["text", "image", "audio", "video", "interactive"]}, "minItems": 1, "uniqueItems": true},
+    "contactWindows": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["days", "from", "to", "timezone"],
+        "properties": {
+          "days": {"type": "array", "items": {"enum": ["mon", "tue", "wed", "thu", "fri", "sat", "sun"]}, "minItems": 1},
+          "from": {"type": "string", "pattern": "^([01]\\d|2[0-3]):[0-5]\\d$"},
+          "to": {"type": "string", "pattern": "^([01]\\d|2[0-3]):[0-5]\\d$"},
+          "timezone": {"type": "string", "minLength": 1}
+        },
+        "additionalProperties": false
+      }
+    },
+    "discovery": {
+      "type": "object",
+      "required": ["enabled", "complementaryOnly", "maxPresentationsPerWeek"],
+      "properties": {
+        "enabled": {"type": "boolean"},
+        "complementaryOnly": {"type": "boolean"},
+        "maxPresentationsPerWeek": {"type": "integer", "minimum": 0},
+        "recoveryEnabled": {"type": "boolean", "default": true}
+      },
+      "additionalProperties": false
+    },
+    "interruptionBudgetPerWeek": {"type": "integer", "minimum": 0},
+    "selectiveDisclosure": {"type": "boolean", "default": true},
+    "updatedAt": {"type": "string", "format": "date-time"}
+  },
+  "additionalProperties": false
+}

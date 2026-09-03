@@ -1,0 +1,29 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "urn:ahmp:schema:decision:2026-09-03",
+  "title": "AHMP Decision",
+  "type": "object",
+  "required": ["decisionId", "consumerId", "status", "policyVersion", "createdAt"],
+  "properties": {
+    "decisionId": {"type": "string"},
+    "consumerId": {"type": "string"},
+    "offerId": {"type": "string"},
+    "status": {"enum": ["present", "reject", "counteroffer", "no_action"]},
+    "reasons": {"type": "array", "items": {"type": "string"}, "uniqueItems": true},
+    "actionFamily": {"enum": ["intent", "complement_discovery", "replenishment", "baseline", "bundle", "discount", "no_action"]},
+    "policyVersion": {"type": "string"},
+    "score": {"type": "number"},
+    "propensity": {"type": "number", "minimum": 0, "maximum": 1},
+    "contextFeatureVersion": {"type": "string"},
+    "createdAt": {"type": "string", "format": "date-time"},
+    "merchantDisclosure": {
+      "type": "object",
+      "properties": {
+        "status": {"enum": ["accepted_for_presentation", "rejected", "counteroffer_possible", "no_action"]},
+        "reasons": {"type": "array", "items": {"type": "string"}}
+      },
+      "additionalProperties": false
+    }
+  },
+  "additionalProperties": false
+}

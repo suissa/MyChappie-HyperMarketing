@@ -1,0 +1,43 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "urn:ahmp:schema:framework-config:2026-09-03",
+  "title": "AHMP Framework Configuration",
+  "type": "object",
+  "required": ["storage", "decisioning"],
+  "properties": {
+    "storage": {
+      "oneOf": [
+        {
+          "type": "object",
+          "required": ["kind", "path"],
+          "properties": {
+            "kind": {"const": "json"},
+            "path": {"type": "string", "minLength": 1}
+          },
+          "additionalProperties": false
+        },
+        {
+          "type": "object",
+          "required": ["kind", "module"],
+          "properties": {
+            "kind": {"const": "database"},
+            "module": {"type": "string", "minLength": 1},
+            "options": {"type": "object", "additionalProperties": true}
+          },
+          "additionalProperties": false
+        }
+      ]
+    },
+    "decisioning": {
+      "type": "object",
+      "required": ["policyVersion", "alpha", "safetyMargin"],
+      "properties": {
+        "policyVersion": {"type": "string", "minLength": 1},
+        "alpha": {"type": "number", "minimum": 0},
+        "safetyMargin": {"type": "number", "minimum": 0}
+      },
+      "additionalProperties": false
+    }
+  },
+  "additionalProperties": false
+}

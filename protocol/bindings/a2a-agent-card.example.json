@@ -1,0 +1,41 @@
+{
+  "name": "MyChappie Consumer Marketing Agent",
+  "description": "Consumer-governed AHMP offer eligibility and discovery agent",
+  "url": "https://consumer-agent.example/a2a",
+  "version": "1.0.0",
+  "protocolVersion": "1.0.0",
+  "capabilities": {
+    "streaming": false
+  },
+  "defaultInputModes": ["application/json"],
+  "defaultOutputModes": ["application/json"],
+  "skills": [
+    {
+      "id": "ahmp-evaluate-offer",
+      "name": "Evaluate AHMP offer",
+      "description": "Evaluate a machine-readable merchant offer against consumer constraints",
+      "tags": ["ahmp", "marketing", "eligibility"]
+    },
+    {
+      "id": "ahmp-record-feedback",
+      "name": "Record AHMP feedback",
+      "description": "Correlate consumer feedback with a prior AHMP decision",
+      "tags": ["ahmp", "feedback", "bandit"]
+    }
+  ],
+  "extensions": [
+    {
+      "uri": "urn:ahmp:a2a:2026-09-03",
+      "description": "Agentic HyperMarketing Protocol structured payloads",
+      "required": false,
+      "params": {
+        "ahmpVersion": "2026-09-03",
+        "schemas": [
+          "urn:ahmp:schema:offer-proposal:2026-09-03",
+          "urn:ahmp:schema:decision:2026-09-03",
+          "urn:ahmp:schema:feedback:2026-09-03"
+        ]
+      }
+    }
+  ]
+}

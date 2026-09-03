@@ -1,0 +1,10 @@
+[
+  {
+    "purchaseId": "purchase-console-1",
+    "consumerId": "consumer-1",
+    "productId": "console-01",
+    "quantity": 1,
+    "lifecycle": "durable",
+    "purchasedAt": "2026-09-02T18:00:00Z"
+  }
+]
