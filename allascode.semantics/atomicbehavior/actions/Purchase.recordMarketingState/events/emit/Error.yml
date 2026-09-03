@@ -1,0 +1,3 @@
+name: Purchase.recordMarketingState.Error
+terminal: true
+semantic: state_derivation_failed

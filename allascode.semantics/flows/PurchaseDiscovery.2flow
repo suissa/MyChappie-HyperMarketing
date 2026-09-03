@@ -1,0 +1,7 @@
+Purchase.Confirmed -> Purchase.recordMarketingState
+Purchase.recordMarketingState.Ok -> Ownership.update
+Purchase.recordMarketingState.Error -> HumanInTheHealingLoop
+Ownership.update.Ok -> Product.discoverComplements
+Ownership.update.Error -> HumanInTheHealingLoop
+Product.discoverComplements.Ok -> Offer.evaluateEligibility
+Product.discoverComplements.Error -> HumanInTheHealingLoop

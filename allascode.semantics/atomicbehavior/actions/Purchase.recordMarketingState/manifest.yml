@@ -1,0 +1,14 @@
+canonical_label: Purchase.recordMarketingState
+kind: action
+version: 0.1.0
+input: schema/input.yml
+output: schema/output.yml
+implementation:
+  typescript: ../../../../examples/typescript/src/allascode/actions/record-purchase-marketing-state.ts
+emits:
+  - Ok
+  - Error
+invariants:
+  - durable_purchase_suppresses_identical_marketing
+  - consumable_purchase_may_define_replenishment_window
+  - purchase_evidence_is_not_mutated

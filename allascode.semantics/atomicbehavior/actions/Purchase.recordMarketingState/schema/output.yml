@@ -1,0 +1,7 @@
+type: object
+required: [version, purchaseId, consumerId, productId, lifecycle, purchasedAt, suppressMarketing, complementSourceEligible]
+properties:
+  suppressMarketing: { type: boolean }
+  suppressionUntil: { type: string, format: date-time }
+  replenishmentEligibleAt: { type: string, format: date-time }
+  complementSourceEligible: { type: boolean }

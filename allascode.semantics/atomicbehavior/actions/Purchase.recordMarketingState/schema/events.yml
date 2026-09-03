@@ -1,0 +1,5 @@
+events:
+  Ok:
+    payload: schema/output.yml
+  Error:
+    codes: [INVALID_PURCHASE, STATE_DERIVATION_FAILED]

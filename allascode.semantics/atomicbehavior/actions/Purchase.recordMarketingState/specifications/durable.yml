@@ -1,0 +1,6 @@
+given:
+  lifecycle: durable
+then:
+  suppressMarketing: true
+  suppressionUntil: null
+  complementSourceEligible: true

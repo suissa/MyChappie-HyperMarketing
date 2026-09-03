@@ -1,0 +1,8 @@
+type: object
+required: [purchase, now]
+properties:
+  purchase:
+    $ref: ../../../../../spec/schemas/purchase.schema.json
+  now:
+    type: string
+    format: date-time

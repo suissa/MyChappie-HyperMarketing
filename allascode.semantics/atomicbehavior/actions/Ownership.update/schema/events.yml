@@ -1,0 +1,5 @@
+events:
+  Ok:
+    semantic: ownership_updated
+  Error:
+    codes: [INVALID_STATE, OWNERSHIP_UPDATE_FAILED]

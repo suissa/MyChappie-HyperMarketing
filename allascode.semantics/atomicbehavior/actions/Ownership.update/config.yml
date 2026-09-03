@@ -1,0 +1,7 @@
+identity:
+  - consumerId
+  - productId
+merge:
+  preserve: [firstPurchasedAt]
+  increment: [purchaseCount]
+  replace: [latestPurchaseId, lifecycle, lastPurchasedAt, marketingSuppressed, suppressionUntil, replenishmentEligibleAt, complementSourceEligible]
