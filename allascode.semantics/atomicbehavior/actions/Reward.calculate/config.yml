@@ -1,0 +1,9 @@
+rewards:
+  purchased: 1.0
+  accepted: 0.6
+  presented: 0.0
+  ignored: -0.2
+  dismissed: -0.3
+  rejected: -0.4
+  blocked_category: -1.0
+  unsubscribed: -1.0

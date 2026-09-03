@@ -1,0 +1,10 @@
+canonical_label: Ownership.update
+kind: action
+version: 0.1.0
+implementation:
+  typescript: ../../../../examples/typescript/src/allascode/actions/update-ownership.ts
+emits: [Ok, Error]
+invariants:
+  - identity_is_consumer_plus_product
+  - first_purchase_timestamp_is_preserved
+  - latest_purchase_replaces_current_marketing_state

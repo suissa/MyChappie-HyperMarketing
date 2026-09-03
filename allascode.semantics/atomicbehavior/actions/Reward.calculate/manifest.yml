@@ -1,0 +1,10 @@
+canonical_label: Reward.calculate
+kind: action
+version: 0.1.0
+implementation:
+  typescript: ../../../../examples/typescript/src/allascode/actions/calculate-reward.ts
+emits: [Ok, Error]
+invariants:
+  - reward_is_bounded_minus_one_to_one
+  - unsubscribe_and_blocked_category_are_maximum_negative_signal
+  - purchase_is_maximum_positive_signal

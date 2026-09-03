@@ -1,0 +1,10 @@
+canonical_label: Bandit.update
+kind: action
+version: 0.1.0
+implementation:
+  typescript: ../../../../examples/typescript/src/allascode/actions/update-bandit.ts
+emits: [Ok, Error]
+invariants:
+  - feature_vector_dimension_matches_policy
+  - reward_is_semantically_bounded
+  - update_is_correlated_to_original_action_family

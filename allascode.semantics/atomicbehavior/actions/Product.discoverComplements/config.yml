@@ -1,0 +1,6 @@
+minimum_confidence: 0.5
+exclude:
+  marketing_suppressed_owned_targets: true
+sort:
+  by: confidence
+  direction: desc

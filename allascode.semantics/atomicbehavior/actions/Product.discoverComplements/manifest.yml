@@ -1,0 +1,12 @@
+canonical_label: Product.discoverComplements
+kind: action
+version: 0.1.0
+implementation:
+  typescript: ../../../../examples/typescript/src/allascode/actions/discover-complements.ts
+emits: [Ok, Error]
+invariants:
+  - discovery_uses_only_consumer_owned_sources
+  - relation_must_be_complement
+  - confidence_threshold_is_mandatory
+  - suppressed_owned_targets_are_excluded
+  - output_action_family_is_complement_discovery

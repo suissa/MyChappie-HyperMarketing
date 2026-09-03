@@ -1,0 +1,4 @@
+trigger_feedback: [rejected, dismissed, ignored]
+allowed_action_families: [baseline, replenishment, bundle, discount]
+always_include_no_action: true
+require_known_product: true

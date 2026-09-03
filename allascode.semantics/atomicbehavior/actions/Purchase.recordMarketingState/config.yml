@@ -1,0 +1,5 @@
+state_version: 1
+replenishment_day_ms: 86400000
+unknown_lifecycle:
+  suppress_marketing: false
+  complement_source_eligible: false

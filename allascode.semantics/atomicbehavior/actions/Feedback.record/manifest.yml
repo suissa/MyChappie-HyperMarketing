@@ -1,0 +1,11 @@
+canonical_label: Feedback.record
+kind: action
+version: 0.1.0
+implementation:
+  typescript: ../../../../examples/typescript/src/allascode/actions/record-feedback.ts
+emits: [Ok, Error]
+invariants:
+  - feedback_id_is_idempotent
+  - decision_must_exist
+  - consumer_must_match_decision
+  - offer_must_match_when_both_are_present

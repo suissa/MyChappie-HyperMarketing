@@ -1,0 +1,5 @@
+events:
+  Ok:
+    semantic: complements_discovered
+  Error:
+    codes: [INVALID_INPUT, DISCOVERY_FAILED]

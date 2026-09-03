@@ -1,0 +1,3 @@
+name: Purchase.recordMarketingState.Ok
+terminal: true
+semantic: state_derived

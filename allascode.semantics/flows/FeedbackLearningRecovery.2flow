@@ -1,0 +1,9 @@
+Human.Feedback -> Feedback.record
+Feedback.record.Ok -> Reward.calculate
+Feedback.record.Error -> HumanInTheHealingLoop
+Reward.calculate.Ok -> Bandit.update
+Reward.calculate.Error -> HumanInTheHealingLoop
+Feedback.record.Ok -> Recovery.generateCandidates
+Bandit.update.Ok -> Marketing.selectNextBestOffer
+Recovery.generateCandidates.Ok -> Offer.evaluateEligibility
+Recovery.generateCandidates.Error -> HumanInTheHealingLoop
